@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<head>
+  <title>How old is Casper?</title>
+  <style>
+    html,
+    body {
+      background-color: #3b4652;
+      color: white;
+      font-family: sans-serif;
+      font-size: 16px;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      margin: 2rem;
+    }
+    h2 {
+      text-align: center;
+      font-size: 1rem;
+      opacity: 0.75;
+    }
+    ul {
+      font-size: 1rem;
+      opacity: 0.75;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      line-height: 1.5rem;
+    }
+  </style>
+  <script>
+    var SECOND = 1000;
+    var MINUTE = SECOND * 60;
+    var HOUR = MINUTE * 60;
+    var DAY = HOUR * 24;
+    var WEEK = DAY * 7;
+
+    var birthday = new Date('2019-04-05T12:26:00');
+    var now = new Date();
+
+
+    const hours = (from, to) => Math.floor((to.valueOf() - from.valueOf()) / HOUR);
+    const days = (from, to) => Math.floor((to.valueOf() - from.valueOf()) / DAY);
+    const weeks = (from, to) => Math.floor((to.valueOf() - from.valueOf()) / WEEK);
+
+    const months = (from, to) => to.getMonth() - from.getMonth() +
+      (12 * (to.getFullYear() - from.getFullYear()))
+
+    const years = (from, to) => to.getFullYear() - from.getFullYear();
+
+    var values = {
+      hours: hours(birthday, now),
+      days: days(birthday, now),
+      weeks: weeks(birthday, now),
+      months: months(birthday, now),
+      years: years(birthday, now),
+    }
+
+    var hedline = values.years + ' years old';
+    if (values.months <= 19) {
+      headline = values.months + ' months old';
+    } else if (values.years < 2) {
+      headline = 'nearly 2';
+    }
+  </script>
+</head>
+
+<body>
+  <h1>
+    Casper is <span>
+      <script>document.write(headline)</script></span>
+  </h1>
+  <div>
+    <h2>or</h2>
+    <ul>
+      <script>
+        document.write(Object.entries(values).map(([key, value]) => `<li>${value} ${key} old</li>`).join(''))
+      </script>
+    </ul>
+  </div>
+</body>
