@@ -25,11 +25,13 @@
       text-align: center;
       margin: 2rem;
     }
+
     h2 {
       text-align: center;
       font-size: 1rem;
       opacity: 0.75;
     }
+
     ul {
       font-size: 1rem;
       opacity: 0.75;
@@ -49,7 +51,6 @@
     var birthday = new Date('2019-04-05T12:26:00');
     var now = new Date();
 
-
     const hours = (from, to) => Math.floor((to.valueOf() - from.valueOf()) / HOUR);
     const days = (from, to) => Math.floor((to.valueOf() - from.valueOf()) / DAY);
     const weeks = (from, to) => Math.floor((to.valueOf() - from.valueOf()) / WEEK);
@@ -67,9 +68,9 @@
       years: years(birthday, now),
     }
 
-    var headline = values.years + ' years old';
+    var headline = `${values.years} years old`;
     if (values.months <= 19) {
-      headline = values.months + ' months old';
+      headline = `${values.months} months old`;
     } else if (values.years < 2) {
       headline = 'nearly 2';
     }
@@ -78,14 +79,19 @@
 
 <body>
   <h1>
-    Casper is <span>
-      <script>document.write(headline)</script></span>
+    Casper is
+    <script>document.write(headline)</script>
   </h1>
   <div>
     <h2>or</h2>
     <ul>
       <script>
-        document.write(Object.entries(values).map(([key, value]) => `<li>${value} ${key} old</li>`).join(''))
+        document.write(
+          Object
+            .entries(values)
+            .map(([key, value]) => `<li>${value.toLocaleString()} ${key} old</li>`)
+            .join('')
+        )
       </script>
     </ul>
   </div>
