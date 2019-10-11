@@ -2,7 +2,7 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>How old is Casper?</title>
+  <title>Where should McClusky leave his gun and his badge?</title>
   <style>
     html,
     body {
@@ -43,56 +43,28 @@
     }
   </style>
   <script>
-    var SECOND = 1000;
-    var MINUTE = SECOND * 60;
-    var HOUR = MINUTE * 60;
-    var DAY = HOUR * 24;
-    var WEEK = DAY * 7;
-
-    var birthday = new Date('2019-04-03T12:26:00');
-    var now = new Date();
-
-    const hours = (from, to) => Math.floor((to.valueOf() - from.valueOf()) / HOUR);
-    const days = (from, to) => Math.floor((to.valueOf() - from.valueOf()) / DAY);
-    const weeks = (from, to) => Math.floor((to.valueOf() - from.valueOf()) / WEEK);
-
-    const months = (from, to) => to.getMonth() - from.getMonth() +
-      (12 * (to.getFullYear() - from.getFullYear()))
-
-    const years = (from, to) => to.getFullYear() - from.getFullYear();
-
     var values = {
-      hours: hours(birthday, now),
-      days: days(birthday, now),
-      weeks: weeks(birthday, now),
-      months: months(birthday, now),
-      years: years(birthday, now),
-    }
-
-    var headline = `${values.years} years old`;
-    if (values.months <= 19) {
-      headline = `${values.months} months old`;
-    } else if (values.years < 2) {
-      headline = 'nearly 2';
-    }
+      the: 'the',
+      front: 'front',
+      desk: 'desk',
+    };
   </script>
 </head>
 
 <body>
   <h1>
-    Casper is
-    <script>document.write(headline)</script>
+    Where should McClusky leave his gun and his badge?
   </h1>
   <div>
-    <h2>or</h2>
+    <h2>At</h2>
     <ul>
       <script>
         document.write(
           Object
             .entries(values)
-            .map(([key, value]) => `<li>${value.toLocaleString()} ${key} old</li>`)
+            .map(([key, value]) => `<li>${value}</li>`)
             .join('')
-        )
+        );
       </script>
     </ul>
   </div>
