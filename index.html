@@ -50,7 +50,7 @@
     var DAY = HOUR * 24;
     var WEEK = DAY * 7;
 
-    var birthday = new Date('2019-02-11T09:00:00.000Z');
+    var rebornOn = new Date('2019-02-11T09:00:00.000Z');
     var now = new Date();
 
     const hours = (from, to) => Math.floor((to.valueOf() - from.valueOf()) / HOUR);
@@ -63,12 +63,12 @@
     const years = (from, to) => to.getFullYear() - from.getFullYear();
 
     var values = {
-      hours: hours(birthday, now),
-      days: days(birthday, now),
-      weeks: weeks(birthday, now),
-      months: months(birthday, now),
-      years: years(birthday, now),
-    }
+      hours: hours(rebornOn, now),
+      days: days(rebornOn, now),
+      weeks: weeks(rebornOn, now),
+      months: months(rebornOn, now),
+      years: years(rebornOn, now),
+    };
 
     var headline = `${values.years} years`;
     if (values.months <= 19) {
@@ -93,7 +93,7 @@
             .entries(values)
             .map(([key, value]) => `<li>${value.toLocaleString()} ${key}</li>`)
             .join('')
-        )
+        );
       </script>
     </ul>
   </div>
