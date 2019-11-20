@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Where should McClusky leave his gun and his badge?</title>
   <style>
     html,
@@ -44,9 +44,9 @@
   </style>
   <script>
     var values = {
-      the: 'the',
-      front: 'front',
-      desk: 'desk',
+      the: "the",
+      front: "front",
+      door: "🚪"
     };
   </script>
 </head>
@@ -60,10 +60,9 @@
     <ul>
       <script>
         document.write(
-          Object
-            .entries(values)
+          Object.entries(values)
             .map(([key, value]) => `<li>${value}</li>`)
-            .join('')
+            .join("")
         );
       </script>
     </ul>
