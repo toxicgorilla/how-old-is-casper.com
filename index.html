@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>How long has "r e m i" been a C# Developer?</title>
-  <!-- haha remi -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How long has Fernando been at work</title>
   <style>
     html,
     body {
@@ -50,49 +49,56 @@
     var DAY = HOUR * 24;
     var WEEK = DAY * 7;
 
-    var rebornOn = new Date('2019-02-11T09:00:00.000Z');
+    var timeOfArrival = new Date("2019-11-20T11:16:00.000Z");
     var now = new Date();
 
-    const hours = (from, to) => Math.floor((to.valueOf() - from.valueOf()) / HOUR);
-    const days = (from, to) => Math.floor((to.valueOf() - from.valueOf()) / DAY);
-    const weeks = (from, to) => Math.floor((to.valueOf() - from.valueOf()) / WEEK);
+    const seconds = (from, to) =>
+      Math.floor((to.valueOf() - from.valueOf()) / SECOND);
+    const minutes = (from, to) =>
+      Math.floor((to.valueOf() - from.valueOf()) / MINUTE);
+    const hours = (from, to) =>
+      Math.floor((to.valueOf() - from.valueOf()) / HOUR);
+    const days = (from, to) =>
+      Math.floor((to.valueOf() - from.valueOf()) / DAY);
+    const weeks = (from, to) =>
+      Math.floor((to.valueOf() - from.valueOf()) / WEEK);
 
-    const months = (from, to) => to.getMonth() - from.getMonth() +
-      (12 * (to.getFullYear() - from.getFullYear()))
+    const months = (from, to) =>
+      to.getMonth() -
+      from.getMonth() +
+      12 * (to.getFullYear() - from.getFullYear());
 
     const years = (from, to) => to.getFullYear() - from.getFullYear();
 
     var values = {
-      hours: hours(rebornOn, now),
-      days: days(rebornOn, now),
-      weeks: weeks(rebornOn, now),
-      months: months(rebornOn, now),
-      years: years(rebornOn, now),
+      seconds: seconds(timeOfArrival, now),
+      minutes: minutes(timeOfArrival, now),
+      hours: hours(timeOfArrival, now),
+      days: days(timeOfArrival, now),
+      weeks: weeks(timeOfArrival, now),
+      months: months(timeOfArrival, now),
+      years: years(timeOfArrival, now)
     };
 
-    var headline = `${values.years} years`;
-    if (values.months <= 19) {
-      headline = `${values.months} months`;
-    } else if (values.years < 2) {
-      headline = 'over 9000 years';
-    }
+    var headline = `${values.hours} hours`;
   </script>
 </head>
 
 <body>
   <h1>
-    Remi has been a C# developer for
-    <script>document.write(headline)</script>
+    Fernando has been at work for
+    <script>
+      document.write(headline);
+    </script>
   </h1>
   <div>
     <h2>or</h2>
     <ul>
       <script>
         document.write(
-          Object
-            .entries(values)
+          Object.entries(values)
             .map(([key, value]) => `<li>${value.toLocaleString()} ${key}</li>`)
-            .join('')
+            .join("")
         );
       </script>
     </ul>
